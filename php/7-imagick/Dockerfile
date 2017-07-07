@@ -5,6 +5,6 @@ RUN apt-get update && apt-get install -y \
         libxslt1-dev \
         libmagickwand-dev \
         imagemagick \
-    && docker-php-ext-install int xsl exif
+    && docker-php-ext-install int xsl exif \
     && pecl install imagick \
     && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini
