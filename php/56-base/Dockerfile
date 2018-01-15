@@ -9,11 +9,12 @@ RUN a2enmod rewrite \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
+        libxml2-dev \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
     && docker-php-ext-configure opcache \
     && docker-php-ext-install opcache \
-    && docker-php-ext-install mysqli curl zip pdo_mysql mbstring opcache
+    && docker-php-ext-install mysqli curl zip pdo_mysql mbstring opcache soap
 
 # GD installation only work when on his own RUN ????
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
