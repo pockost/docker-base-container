@@ -18,4 +18,6 @@ RUN a2enmod rewrite \
     && docker-php-ext-configure opcache \
     && docker-php-ext-install opcache \
     && pecl install redis \
-    && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
+    && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
+    && pecl install apcu \
+    && docker-php-ext-enable apcu
