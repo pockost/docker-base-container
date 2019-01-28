@@ -1,4 +1,4 @@
-FROM php:7.1.26-apache
+FROM php:7.0.33-apache
 
 RUN a2enmod rewrite \
     && apt-get update \
@@ -12,7 +12,7 @@ RUN a2enmod rewrite \
        libbz2-dev \
        libxslt1-dev \
        libmagickwand-dev \
-    && curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/62.1/icu4c-62_1-src.tgz \
+    && curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz \
     && tar -zxf /tmp/icu.tar.gz -C /tmp \
     && cd /tmp/icu/source \
     && ./configure --prefix=/usr/local \
